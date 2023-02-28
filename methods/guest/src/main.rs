@@ -60,7 +60,7 @@ pub fn main() {
     ));
 
     if hack.point as usize != 0 {
-        let code: fn() = unsafe { std::mem::transmute(0x800009c) }; // this is hardcoded, should be taken from the overflown buffer but i am lazy
+        let code: fn() = unsafe { std::mem::transmute(0x800009c) }; // this is hardcoded, should be taken from the overflown buffer but i am lazy, change this according the the output above on your machine, there is no ASLR so it will be static
         code();
     }
 
