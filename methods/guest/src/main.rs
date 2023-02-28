@@ -58,35 +58,12 @@ pub fn main() {
         "hack.point after strcpy: x{:0x}",
         hack.point as usize,
     ));
-    // env::log(&format!(
-    // "hack.point after strcpy (in chars): {:?}",
-    // (hack.point as usize as u64)
-    // .to_le_bytes()
-    // .into_iter()
-    // .map(|b| char::from(b))
-    // .collect::<String>(),
-    // ));
+
     if hack.point as usize != 0 {
-        // env::log("Try again");
-        //} else {
         let code: fn() = unsafe { std::mem::transmute(0x800009c) }; // this is hardcoded, should be taken from the overflown buffer but i am lazy
         code();
     }
 
-    // if guess.eq("booom") {
-    //    secret = guess.clone();
-    //}
-    // assert_eq!(
-    // guess.chars().count(),
-    // WORD_LENGTH,
-    // "guess must have length 5!"
-    // );
-    //
-    // assert_eq!(
-    // secret.chars().count(),
-    // WORD_LENGTH,
-    // "secret must have length 5!"
-    // );
     let mut feedback: WordFeedback = WordFeedback::default();
     for i in 0..WORD_LENGTH {
         feedback.0[i] = if secret.as_bytes()[i] == guess.as_bytes()[i] {
