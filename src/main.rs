@@ -137,7 +137,7 @@ fn play_rounds(server: Server, player: Player, rounds: usize) -> bool {
 
 fn main() {
     println!("Welcome to fair wordle!");
-
+    env_logger::init();
     let server = Server::new(wordlist::pick_word());
     let player = Player {
         hash: server.get_secret_word_hash(),

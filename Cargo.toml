@@ -9,6 +9,8 @@ risc0-zkvm = { path = "../../risc0/zkvm" }
 serde = "1.0"
 wordle-core = { path = "core" }
 wordle-methods = { path = "methods" }
+log = "0.4.0"
+env_logger = "0.10"
 
 [features]
 cuda = ["risc0-zkvm/cuda"]
